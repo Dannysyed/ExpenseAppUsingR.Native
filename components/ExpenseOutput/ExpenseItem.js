@@ -34,6 +34,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    elevation: 10,
+    shadowColor: GlobalStyles.colors.gray500,
+    shadowRadius: 4,
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.4,
   },
   descBox: {
     borderWidth: 1,

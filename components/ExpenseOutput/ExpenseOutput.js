@@ -36,6 +36,18 @@ const ExpenseOutput = ({ expensePeriod }) => {
       amount: 18.51,
       date: new Date('2022-02-18'),
     },
+    {
+      id: 'e6',
+      description: 'Another book',
+      amount: 18.51,
+      date: new Date('2022-02-18'),
+    },
+    {
+      id: 'e7',
+      description: 'Another book',
+      amount: 18.51,
+      date: new Date('2022-02-18'),
+    },
   ]
   return (
     <View style={styles.container}>
@@ -49,8 +61,10 @@ export default ExpenseOutput
 
 const styles = StyleSheet.create({
   container: {
-    padding: 24,
-    backgroundColor: GlobalStyles.colors.primary700,
     flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    paddingBottom: 0,
+    backgroundColor: GlobalStyles.colors.primary700,
   },
 })
