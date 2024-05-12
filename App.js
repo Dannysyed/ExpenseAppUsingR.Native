@@ -1,25 +1,31 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import ManageExpenses from './screens/ManageExpenses'
 import AllExpenses from './screens/AllExpenses'
 import RecentExpense from './screens/RecentExpense'
 import { GlobalStyles } from './constants/styles'
+import IconButton from './components/UI/iconButton'
 
 const BottomTabs = createBottomTabNavigator()
 
 const Stack = createStackNavigator()
 
 function DrawerScreen() {
+  let navigation = useNavigation()
+
+  let rightButtonHandle = () => {
+    navigation.navigate('ManageExpense')
+  }
   return (
     <BottomTabs.Navigator
-      initialRouteName='Games'
-      screenOptions={{
+      initialRouteName='Recent'
+      screenOptions={({ navigation }) => ({
         headerStyle: {
           backgroundColor: GlobalStyles.colors.primary500,
         },
@@ -28,7 +34,19 @@ function DrawerScreen() {
           backgroundColor: GlobalStyles.colors.primary500,
         },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
-      }}
+        headerRight: ({ tintColor }) => {
+          return (
+            <IconButton
+              icon={'add'}
+              size={24}
+              color={tintColor}
+              onPress={() => {
+                navigation.navigate('ManageExpense')
+              }}
+            />
+          )
+        },
+      })}
     >
       <BottomTabs.Screen
         name='Recent'
