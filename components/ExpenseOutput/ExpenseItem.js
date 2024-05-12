@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import React from 'react'
 import { GlobalStyles } from '../../constants/styles'
+import { getFormattedDate } from '../../utils/date'
 
 const ExpenseItem = ({ Description, Amount, Date }) => {
   return (
@@ -14,7 +15,7 @@ const ExpenseItem = ({ Description, Amount, Date }) => {
       <View style={styles.container}>
         <View style={styles.desc}>
           <Text style={styles.description}>{Description}</Text>
-          <Text style={styles.date}>2012-2-19</Text>
+          <Text style={styles.date}>{getFormattedDate(Date)}</Text>
         </View>
         <TouchableOpacity style={styles.Amount}>
           <Text style={styles.amountButton}>{Amount}</Text>

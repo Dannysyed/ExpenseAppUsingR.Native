@@ -39,7 +39,7 @@ const ExpenseOutput = ({ expensePeriod }) => {
     {
       id: 'e6',
       description: 'Another book',
-      amount: 18.51,
+      amount: 111111118.51,
       date: new Date('2022-02-18'),
     },
     {
